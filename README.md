@@ -1,8 +1,8 @@
-# 🛍️ TOKO ONLINE UNTAG — v2.0
-### Aplikasi E-Commerce Sederhana — Praktikum Mobile (Flutter)
+# 🛍️ TOKO UNTAG
+### Aplikasi E-Commerce Sederhana
 **Universitas 17 Agustus 1945 Surabaya**
 
-Versi ini adalah upgrade dari v1, menambahkan: **Riverpod, Firebase Authentication, Hive (offline caching), fitur Kamera, REST API CRUD lengkap (GET/POST/PUT/DELETE), dan desain responsif.**
+Menambahkan: **Riverpod, Firebase Authentication, Hive (offline caching), fitur Kamera, REST API CRUD lengkap (GET/POST/PUT/DELETE), dan desain responsif.**
 
 ---
 
@@ -24,7 +24,7 @@ Versi ini adalah upgrade dari v1, menambahkan: **Riverpod, Firebase Authenticati
 ```
 lib/
 ├── main.dart                          # Entry point: init Firebase + Hive + ProviderScope
-├── firebase_options.dart              # ⚠️ Placeholder — wajib diganti (lihat Setup Firebase)
+├── firebase_options.dart
 │
 ├── models/
 │   ├── product_model.dart             # Product + Rating, dengan @HiveType (cache offline)
@@ -100,24 +100,14 @@ Saat `flutterfire configure` dijalankan:
 2. Pilih platform yang ingin didukung (minimal **Android**).
 3. CLI akan **otomatis menimpa** `lib/firebase_options.dart` dengan kredensial asli.
 
-**Aktifkan Email/Password Authentication:**
-1. Buka [Firebase Console](https://console.firebase.google.com) → pilih project Anda.
-2. Menu **Authentication** → tab **Sign-in method**.
-3. Aktifkan provider **Email/Password**.
-
-### 3. Tambahkan Permission Android
+### 2. Tambahkan Permission Android
 
 Gabungkan isi `android/app/src/main/AndroidManifest_PERMISSIONS_TO_MERGE.xml` ke dalam `android/app/src/main/AndroidManifest.xml` yang dihasilkan oleh Flutter (tambahkan tag `<uses-permission>` sebelum `<application>`).
 
-### 4. Jalankan aplikasi
+### 3. Jalankan aplikasi
 ```bash
 flutter run
 ```
-
-> 💡 Jika menambah/mengubah `@HiveType` di model, jalankan ulang code generator:
-> ```bash
-> flutter pub run build_runner build --delete-conflicting-outputs
-> ```
 
 ---
 
@@ -149,11 +139,6 @@ shimmer                           # Skeleton loading
 | `profilePhotoProvider` | `AsyncNotifierProvider<File?>` | Hasil ambil foto dari kamera/galeri |
 | `connectivityProvider` | `StreamProvider<bool>` | Status online/offline real-time |
 
-**Kenapa Riverpod?**
-- Tidak perlu `BuildContext` untuk membaca state (`ref.read`/`ref.watch`) — lebih aman dan testable.
-- `AsyncNotifier`/`AsyncValue` otomatis menyediakan 3 state (loading/error/data), menggantikan boilerplate `FutureBuilder` manual.
-- Provider bisa saling bergantung (`ref.watch(providerLain)`) sehingga logic kompleks (mis. filter produk) cukup ditulis sekali di provider, dipakai ulang di banyak screen.
-
 ---
 
 ## 🌐 REST API — CRUD Lengkap
@@ -167,7 +152,7 @@ shimmer                           # Skeleton loading
 | PUT | `/products/{id}` | `updateProduct()` |
 | DELETE | `/products/{id}` | `deleteProduct()` |
 
-> ℹ️ fakestoreapi.com bersifat simulasi (sandbox) — request POST/PUT/DELETE akan dibalas seolah berhasil, namun tidak benar-benar mengubah data permanen di server mereka. Ini sudah sesuai sifat API publik untuk keperluan latihan.
+> ℹ️ fakestoreapi.com bersifat simulasi — request POST/PUT/DELETE akan dibalas seolah berhasil, namun tidak benar-benar mengubah data permanen di server mereka. Ini sudah sesuai sifat API publik untuk keperluan latihan.
 
 ---
 
