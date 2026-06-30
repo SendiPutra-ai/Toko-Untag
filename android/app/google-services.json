@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "284215528665",
+    "project_id": "toko-untag",
+    "storage_bucket": "toko-untag.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284215528665:android:54c490ad4181856f0682c8",
+        "android_client_info": {
+          "package_name": "com.example.toko_untag"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuApIh99CZQUa9lzNZTPuttyL4TnHyL_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284215528665:android:9beb3057c68bd5cd0682c8",
+        "android_client_info": {
+          "package_name": "toko_untag.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuApIh99CZQUa9lzNZTPuttyL4TnHyL_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

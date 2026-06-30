@@ -1,0 +1,39 @@
+<!--
+  CATATAN PENTING:
+  File ini adalah CONTOH potongan AndroidManifest.xml yang perlu digabungkan
+  ke file AndroidManifest.xml asli proyek Flutter Anda
+  (lokasi: android/app/src/main/AndroidManifest.xml), yang baru akan
+  terbentuk lengkap setelah Anda menjalankan `flutter create .` pertama kali.
+
+  Tambahkan tag <uses-permission> di bawah ini SEBELUM tag <application>,
+  dan tambahkan atribut di dalam tag <application> sesuai contoh.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Wajib: akses internet untuk REST API & Firebase -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Wajib: fitur native kamera (ambil foto profil) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Wajib: akses galeri untuk memilih foto sebagai alternatif kamera -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- Opsional tapi direkomendasikan: cek status koneksi (connectivity_plus) -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Deklarasikan bahwa device TIDAK WAJIB punya kamera fisik (HP tanpa
+         kamera tetap bisa install app ini, fitur kamera akan dilewati) -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:label="Toko Online UNTAG"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+        <!-- ... isi <application> lain dari template default Flutter tetap dipakai ... -->
+    </application>
+</manifest>
